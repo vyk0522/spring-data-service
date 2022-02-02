@@ -9,11 +9,13 @@ import java.util.Collection;
 import java.util.List;
 
 public interface SessionRepository extends JpaRepository<Session, Long> {
+    // Generated using JPA Palette Method Option
     List<Session> findBySessionNameContains(String sessionName);
 
     @Query("select s from Session s where upper(s.sessionName) = upper(?1)")
     List<Session> findBySessionNameIgnoreCase(String sessionName);
 
+    // Generated using JPA Palette Query Option
     @Modifying
     @Query("delete from Session s where s.sessionName = ?1 or s.sessionDescription not in ?2")
     int deleteBySessionNameOrSessionDescriptionNotIn(String sessionName, Collection<String> sessionDescriptions);

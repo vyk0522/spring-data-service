@@ -1,5 +1,6 @@
 package com.onejava.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,6 +28,7 @@ public class PricingCategory {
     private Date pricingEndDate;
 
     @OneToMany(mappedBy = "pricingCategory", orphanRemoval = true)
+    @JsonIgnore
     private List<TicketPrice> ticketPrices = new ArrayList<>();
 
 }

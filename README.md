@@ -6,6 +6,8 @@ Artifact: spring-data-service
 Package name: com.onejava  
 JDK11, Gradle, 2.6.3, Jar  
 Dependencies > Spring Data JPA, Validation(Hibernate), Web, Flyway, Lombok, MySQL Driver, Spring Configuration Processor  
+Other Dependencies:  
+compileOnly 'org.apache.commons:commons-lang3'  
 
 ### Tools used
 We have used JPA Buddy to create entities and repositories
