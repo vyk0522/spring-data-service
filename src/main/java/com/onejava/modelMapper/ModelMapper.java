@@ -59,4 +59,9 @@ public class ModelMapper {
             return null;
         }
     }
+
+
+    public static <T> T convert(Object object, Class<T> eventDataClass) {
+        return objectMapper.convertValue(object, eventDataClass);
+    }
 }
