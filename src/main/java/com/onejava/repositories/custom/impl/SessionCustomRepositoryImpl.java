@@ -1,7 +1,7 @@
-package com.onejava.repositories.impls;
+package com.onejava.repositories.custom.impl;
 
 import com.onejava.entities.Session;
-import com.onejava.repositories.SessionCustomRepository;
+import com.onejava.repositories.custom.SessionCustomRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

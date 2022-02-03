@@ -1,4 +1,4 @@
-package com.onejava.repositories;
+package com.onejava.repositories.custom;
 
 import com.onejava.entities.Session;
 

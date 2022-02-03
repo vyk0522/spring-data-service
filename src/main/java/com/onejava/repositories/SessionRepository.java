@@ -1,6 +1,7 @@
 package com.onejava.repositories;
 
 import com.onejava.entities.Session;
+import com.onejava.repositories.custom.SessionCustomRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
