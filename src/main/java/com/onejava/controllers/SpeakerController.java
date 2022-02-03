@@ -6,8 +6,12 @@ import com.onejava.modelMapper.ModelMapper;
 import com.onejava.repositories.SpeakerRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,6 +28,21 @@ public class SpeakerController {
     @GetMapping
     public List<Speaker> read(){
         return speakerRepository.findAll();
+    }
+
+    @GetMapping("/page")
+    public List<Speaker> readWithPagingAndSorting(){
+        List<Speaker> speakers = new ArrayList<>();
+        Page<Speaker> speakerPage;
+        int pageNumber = 0;
+
+        do {
+            speakerPage = speakerRepository.findAll(PageRequest.of(pageNumber++, 5,
+                    Sort.by(Sort.Direction.DESC, "sessionLength")));
+            speakers.addAll(speakerPage.getContent());
+        }while (! speakerPage.isLast() && pageNumber < 300);
+
+        return speakers;
     }
 
     @GetMapping("/{id}")
